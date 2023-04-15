@@ -4,35 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.view.MainActivity">
+    tools:context=".ui.view.SearchFragment">
 
-    <FrameLayout
-        android:id="@+id/frame_layout"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tl_search"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/bottom_navigation_view"
+        android:layout_height="wrap_content"
+        android:hint="Search..."
+        android:padding="4dp"
+        app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/booksearch_nav_host_fragment"
-            android:name="androidx.navigation.fragment.NavHostFragment"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_search"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:defaultNavHost="true"
-            app:navGraph="@navigation/booksearch_nav_graph" />
+            android:inputType="textAutoComplete" />
 
-    </FrameLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation_view"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_search_result"
         android:layout_width="0dp"
-        android:layout_height="56dp"
+        android:layout_height="0dp"
+        android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_navigation_menu" />
-
+        app:layout_constraintTop_toBottomOf="@+id/tl_search" />
 </androidx.constraintlayout.widget.ConstraintLayout>
