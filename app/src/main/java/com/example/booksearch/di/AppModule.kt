@@ -77,4 +77,7 @@ object AppModule {
     fun provideWorkManager(@ApplicationContext context: Context): WorkManager =
         WorkManager.getInstance(context)
 
+    @Singleton
+    @Provides
+    fun provideCacheDeleteResult(): String = "Cache has deleted by Hilt"
 }
